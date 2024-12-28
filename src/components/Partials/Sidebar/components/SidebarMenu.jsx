@@ -5,7 +5,7 @@ const SidebarMenu = ({ list }) => {
   return (
     <ul className="space-y-2 font-medium">
       {list?.map((item, index) => (
-        <li>
+        <li key={index}>
           <SidebarMenuItem key={index} {...item} />
         </li>
       ))}

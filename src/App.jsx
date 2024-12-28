@@ -6,6 +6,7 @@ import LoginPage from './modules/Auth/components/LoginPage';
 import Books from './modules/Books';
 import Home from './modules/Home';
 import './App.css'
+import './index.css'
 import 'aos/dist/aos.css';
 
 function App() {
@@ -18,6 +19,12 @@ function App() {
     });
   }, []);
 
+  // Fungsi untuk logout saat token expired
+  const handleLogout = () => {
+    localStorage.removeItem('token'); // Hapus token dari localStorage
+    setToken(null); // Set state token menjadi null
+  };
+
   return (
     <>
       <Router>
@@ -25,7 +32,9 @@ function App() {
           <DashboardLayouts setToken={setToken}>
             <Routes>
               <Route path="/" element={<Home data-aos="fade-up" />} />
-              <Route path="/books" element={<Books data-aos="fade-up" />} />
+              <Route 
+              path="/books" 
+              element={<Books data-aos="fade-up" handleLogout={handleLogout} />} />
             </Routes>
           </DashboardLayouts>
         ) : (

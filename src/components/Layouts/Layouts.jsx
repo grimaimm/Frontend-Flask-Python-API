@@ -6,11 +6,14 @@ import { AuthContainer, DashboardContainer } from './Container'
 export const DashboardLayouts = ({ children }) => {
   return (
     <>
-      <Navbar />
-      <Sidebar />
-      <DashboardContainer>
-        {children}
-      </DashboardContainer>
+      {/* <div className='relative'> */}
+        <Navbar />
+        <Sidebar />
+        <DashboardContainer>
+          {children}
+        </DashboardContainer>
+      {/* </div> */}
+
     </>
   )
 }
